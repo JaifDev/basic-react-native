@@ -1,20 +1,20 @@
-# Reanimated example
+## React Native
+Steps to run the project
+# Step 1
+run this command in the terminal to start the project
+>`npx expo start -c`
+# Step 2
+press A to open the project in android emulator, alternatively you can use expo go application
 
-<p>
-  <!-- iOS -->
-  <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
-  <!-- Android -->
-  <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
-  <!-- Web -->
-</p>
 
-## 🚀 How to use
+## Backend
+Steps to run the backend
+# Step 1
+cd into the server dierctory with 
+>`cd server`
+# Step 2
+run this command
+>`npm start`
 
-> `npx create-react-native-app my-app -t with-reanimated`
 
-- Run `yarn` or `npm install`
-- Run `yarn start` or `npm run start` to try it out.
-
-## 📝 Notes
-
-- [`react-native-reanimated` docs](https://docs.swmansion.com/react-native-reanimated/)
+## Server will start running and you can expolore the application!

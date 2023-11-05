@@ -1,46 +1,45 @@
-import Animated, {
-  useSharedValue,
-  withTiming,
-  useAnimatedStyle,
-  Easing,
-} from "react-native-reanimated";
-import { View, Button } from "react-native";
+import { Text, View } from "react-native";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import Icon from "react-native-vector-icons/FontAwesome5"; // Import from FontAwesome5
 
-export default function AnimatedStyleUpdateExample(props) {
-  const randomWidth = useSharedValue(10);
+import Home from "./src/screens/Home";
+import Form from "./src/screens/Form";
 
-  const config = {
-    duration: 500,
-    easing: Easing.bezier(0.5, 0.01, 0, 1),
-  };
+const Tab = createMaterialBottomTabNavigator();
 
-  const style = useAnimatedStyle(() => {
-    return {
-      width: withTiming(randomWidth.value, config),
-    };
-  });
-
+const AppNavigation = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
-    >
-      <Animated.View
-        style={[
-          { width: 100, height: 80, backgroundColor: "black", margin: 30 },
-          style,
-        ]}
-      />
-      <Button
-        title="toggle"
-        onPress={() => {
-          randomWidth.value = Math.random() * 350;
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="home" size={20} color={color} /> // Use FontAwesome5
+          ),
         }}
       />
-    </View>
+      <Tab.Screen
+        name="Form"
+        component={Form}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="wpforms" size={20} color={color} /> // Use FontAwesome5
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
-}
+};
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <AppNavigation />
+    </NavigationContainer>
+  );
+};
+
+export default App;
